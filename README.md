@@ -15,7 +15,7 @@ We include some example data from the TCGA-BLCA cohort:
 ```r
 library(mibcCPIclass)
 data(tcga_blca_ex)
-classify_mibcCPIclass(tcga_blca_ex)
+classify_mibcCPI(tcga_blca_ex)
 # A tibble: 81 x 8
    id         prediction class_name probability_s1 probability_s2 probability_s3 probability_s4 probability_s5
    <chr>      <fct>      <fct>               <dbl>          <dbl>          <dbl>          <dbl>          <dbl>
