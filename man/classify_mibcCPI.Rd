@@ -4,10 +4,13 @@
 \alias{classify_mibcCPI}
 \title{Single-sample classifier of CPI-response related classes}
 \usage{
-classify_mibcCPI(gexp, gene_id = c("gene_symbol", "ensembl_id", "entrezid")[1])
+classify_mibcCPI(
+  gexp,
+  gene_id = c("hgnc_symbol", "ensembl_gene_id", "entrezid")[1]
+)
 }
 \arguments{
-\item{gexp}{gene expression matrix, normalized by log2(FPKM)}
+\item{gexp}{gene expression matrix, normalized by log2(FPKM+1)}
 
 \item{gene_id}{type of gene identifier. One of: 'gene_symbol',
 'ensembl_id', 'entrezid'}
@@ -16,7 +19,7 @@ classify_mibcCPI(gexp, gene_id = c("gene_symbol", "ensembl_id", "entrezid")[1])
 A data.frame with classification predictions and probabilities.
 }
 \description{
-Classifies RNA-seq from bladder cancer samples normalized with log2(FPKM) into one of 5 classes
+Classifies RNA-seq from bladder cancer samples normalized with log2(FPKM+1) into one of 5 classes
 proposed by Robertson et al (2021, doi: tba), related to response to
 neoadjuvant treatment with checkpoint inhibitors (CPI).
 }

@@ -19,7 +19,6 @@
 #' data(tcga_blca_ex)
 #' classify_mibcCPI(tcga_blca_ex)
 #' @export
-#'
 classify_mibcCPI <- function(gexp,
                         gene_id = c("hgnc_symbol", "ensembl_gene_id", "entrezid")[1]) {
     #-- Transform into symbol
