@@ -1,0 +1,36 @@
+################################################################################
+## Classifies using the elastic_net with 100 features
+################################################################################
+classify_enet100 <- function(gexp) {
+    glm_model <- readRDS("Results/glm_model100.RDS")
+    feats <- readRDS("Results/features100.RDS")
+    
+    #-- Fix names
+    rownames(gexp) <- str_replace_all(rownames(gexp), "-", "_")
+    
+    #-- Address missing
+    missing <- feats[! feats %in% rownames(gexp)]
+    val <- mean(gexp[feats[feats %in% rownames(gexp)],])
+    
+    if(length(missing) > 0) {
+        msg <- paste("There are markers missing from this dataset.
+Missing genes:", paste(missing, collapse = ", "))
+        warning(msg) 
+    }
+    
+    mss_mat <- matrix(val, nrow = length(missing), ncol = ncol(gexp),
+                      dimnames = list(missing, colnames(gexp)))
+    gexp <- rbind(gexp, mss_mat)
+    #-- Rearrange
+    data <- gexp[feats,] %>% t() %>% as.data.frame()
+    #-- Make prediction
+    pred_cls <- predict(glm_model, data)
+    probs_cls <- predict(glm_model, data, type = "prob") %>%
+        rename_all(~ paste0("glm_prob_c", .))
+    #-- Make return
+    class_res <- cbind(glm_pred = pred_cls, probs_cls) %>%
+        as.data.frame() %>%
+        rownames_to_column("id")
+    
+    return(class_res)
+}
