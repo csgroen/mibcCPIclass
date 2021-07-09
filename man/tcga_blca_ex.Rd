@@ -5,7 +5,9 @@
 \alias{tcga_blca_ex}
 \title{A 100-gene, 81 sample subset of the TCGA-BLCA dataset}
 \format{
-A matrix with 100 rows (genes) and 81 columns (samples)
+A matrix with 100 rows (genes) and 81 columns (samples).
+Downloaded using TCGAbiolinks package on 2021-07-09, and normalized as:
+log2(FPKM+1), with gene IDs mapped to HGNC symbols using Ensembl version 101.
 }
 \usage{
 tcga_blca_ex

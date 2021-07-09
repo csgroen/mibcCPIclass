@@ -1,12 +1,13 @@
 #' Single-sample classifier of CPI-response related classes
 #'
-#' Classifies RNA-seq from bladder cancer samples normalized with log2(FPKM+1) into one of 5 classes
+#' Classifies RNA-seq from muscle-invasive bladder cancer samples normalized
+#' with log2(FPKM+1) into one of 5 classes
 #' proposed by Robertson et al (2021, doi: tba), related to response to
 #' neoadjuvant treatment with checkpoint inhibitors (CPI).
 #'
 #' @param gexp gene expression matrix, normalized by log2(FPKM+1)
-#' @param gene_id type of gene identifier. One of: 'gene_symbol',
-#' 'ensembl_id', 'entrezid'
+#' @param gene_id type of gene identifier. One of: 'hgnc_symbol',
+#' 'ensembl_gene_id', 'entrezid'. Default: 'hgnc_symbol
 #'
 #' @return A data.frame with classification predictions and probabilities.
 #' @importFrom stringr str_replace_all
@@ -72,6 +73,8 @@ Missing genes:", paste(missing, collapse = ", "))
 }
 #' A 100-gene, 81 sample subset of the TCGA-BLCA dataset
 #'
-#' @format A matrix with 100 rows (genes) and 81 columns (samples)
+#' @format A matrix with 100 rows (genes) and 81 columns (samples).
+#' Downloaded using TCGAbiolinks package on 2021-07-09, and normalized as:
+#' log2(FPKM+1), with gene IDs mapped to HGNC symbols using Ensembl version 101.
 #' @references Robertson et al., Cell, 2017 doi: 10.1016/j.cell.2017.09.007
 "tcga_blca_ex"
