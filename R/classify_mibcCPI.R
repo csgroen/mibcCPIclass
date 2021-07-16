@@ -85,7 +85,7 @@ classification_features <- function(gene_id = c("hgnc_symbol", "ensembl_gene_id"
     if(!gene_id %in% c("hgnc_symbol", "ensembl_gene_id", "entrezid")) {
         stop('`gene_id` must be one of: "hgnc_symbol", "ensembl_gene_id", "entrezid"')
     }
-    class_feats <- gene_annot[,gene_id]
+    class_feats <- as.data.frame(gene_annot)[,gene_id]
 
     return(class_feats)
 }
