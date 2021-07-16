@@ -80,6 +80,7 @@ Missing genes:", paste(missing, collapse = ", "))
 #'
 #' @examples
 #' classification_features()
+#' @export
 classification_features <- function(gene_id = c("hgnc_symbol", "ensembl_gene_id", "entrezid")[1]) {
     if(!gene_id %in% c("hgnc_symbol", "ensembl_gene_id", "entrezid")) {
         stop('`gene_id` must be one of: "hgnc_symbol", "ensembl_gene_id", "entrezid"')
