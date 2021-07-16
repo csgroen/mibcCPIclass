@@ -35,7 +35,7 @@ classify_mibcCPI <- function(gexp,
 
     #-- Address missing
     missing <- feats[! feats %in% rownames(gexp)]
-    val <- mean(gexp[feats[feats %in% rownames(gexp)],])
+    val <- mean(as.matrix(gexp[feats[feats %in% rownames(gexp)],]), na.rm = TRUE)
 
     if(length(missing) > 0) {
         msg <- paste("There are markers missing from this dataset.
@@ -71,6 +71,24 @@ Missing genes:", paste(missing, collapse = ", "))
 
     return(class_res)
 }
+#' Get mibcCPI classification features
+#'
+#' Returns a vector of 100 gene symbols with the classification features
+#'
+#' @param gene_id type of gene identifier. One of: 'hgnc_symbol',
+#' 'ensembl_gene_id', 'entrezid'. Default: 'hgnc_symbol
+#'
+#' @examples
+#' classification_features()
+classification_features <- function(gene_id = c("hgnc_symbol", "ensembl_gene_id", "entrezid")[1]) {
+    if(!gene_id %in% c("hgnc_symbol", "ensembl_gene_id", "entrezid")) {
+        stop('`gene_id` must be one of: "hgnc_symbol", "ensembl_gene_id", "entrezid"')
+    }
+    class_feats <- gene_annot[,gene_id]
+
+    return(class_feats)
+}
+
 #' A 100-gene, 81 sample subset of the TCGA-BLCA dataset
 #'
 #' @format A matrix with 100 rows (genes) and 81 columns (samples).
