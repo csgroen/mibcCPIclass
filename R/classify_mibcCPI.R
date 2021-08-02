@@ -73,7 +73,18 @@ Missing genes:", paste(missing, collapse = ", "))
 }
 #' Get mibcCPI classification features
 #'
-#' Returns a vector of 100 gene symbols with the classification features
+#' Returns a vector of 100 gene symbols with the classification features.
+#'
+#' Genes are: DDI2, ARHGEF10L, RAP1GAP, CYP4B1, LRRC8C, DPYD, CSF1, SLC16A1, PLEKHO1,
+#' FCER1G, FCGR2A, NCF2, SNRPE, SRGN, FAS, CHST15, TRIM22, PPFIBP2, CD44, SPI1,
+#' SERPING1, IL10RA, IFFO1, SLC38A1, RARG, ERBB3, GLIPR1, PLXNC1, SH2B3, STX2,
+#' RASA3, DHRS2, GNG2, SUSD6, ASB2, CCDC9B, ATP8B4, RAB27A, PLEKHO2, CIITA,
+#' TMC7, MT2A, GGT6, TMEM97, RAPGEFL1, FMNL1, EPN3, FAM20A, SPHK1, ENGASE,
+#' TUBB6, MOB3A, RASAL3, CYP4F22, JAK3, PLAUR, RRAS, LILRB2, CCDC88A, ARHGAP25,
+#' ARID5A, ZEB2, FMNL2, CYBRD1, ANKRD44, SIRPA, BCAS1, RBBP8NL, SAMSN1, CYTH4,
+#' TRIM71, MBNL1, GNB4, TLR1, TLR6, GPRIN3, ANXA5, OSMR, IL6ST, SGTB, CD14, CD74,
+#' ADAM19, DOCK2, PPP1R18, LRRC1, CD109, SOD2, FAM20C, JAZF1, MYO1G, ZYX, SNX31,
+#' JAK2, GLIPR2, TNC, TRAF1, NEK6, SCML2, MSN
 #'
 #' @param gene_id type of gene identifier. One of: 'hgnc_symbol',
 #' 'ensembl_gene_id', 'entrezid'. Default: 'hgnc_symbol
