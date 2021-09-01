@@ -5,7 +5,7 @@ Install the package directly from Github:
 # install.packages("remotes")
 remotes::install_github("csgroen/mibcCPIclass")
 ```
-For classification, a RNA-seq gene expression matrix normalized with log2(FPKM)
+For classification, a RNA-seq gene expression matrix normalized with log2(FPKM+1)
 is recommended, with samples on columns and genes on rows. Supported IDs are HGNC
 symbol, ENTREZ id and Ensembl gene IDs for the classification genes.
 
